@@ -1,7 +1,7 @@
 # Frontend Boilerplate project
 ## There is few branches for different needs:
 
-### Boilerplate for simple layout project which includes:
+### [Boilerplate](https://github.com/LitvinenkoEvgeny/frontend-boilerplate/tree/simple-boilerplate) for simple layout project which includes:
 - pug
 - puglint
 - sass\scss
