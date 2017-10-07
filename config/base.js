@@ -1,5 +1,6 @@
 const path = require('path');
 const defaults = require('./defaults');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     output: {
@@ -13,5 +14,13 @@ module.exports = {
         historyApiFallback: true,
         hot: true,
         publicPath: defaults.publicPath
-    }
+    },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: '!!pug-loader!src/index.pug',
+            filename: '../index.html',
+            alwaysWriteToDisk: true
+        })
+    ]
 };
