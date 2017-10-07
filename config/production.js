@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const base = require('./base');
 const defaults = require('./defaults');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const _ = require('lodash');
 
 
@@ -34,11 +35,19 @@ const imgLoader = {
     ]
 };
 
+const cssLoader = {
+    test: /\.s(c|a)ss$/,
+    use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: "css-loader!postcss-loader!sass-loader"
+    })
+};
+
 const loaders = [
     {...defaults.pugLoader},
     {...defaults.jsLoader},
     {...imgLoader},
-    {...defaults.cssLoader},
+    {...cssLoader},
     {...defaults.fontLoader},
     {...defaults.videoLoader},
 ];
@@ -57,6 +66,7 @@ const config = Object.assign(base, {
 });
 config.plugins.push(
     new webpack.NoEmitOnErrorsPlugin(),
+    new ExtractTextPlugin('styles.css'),
 );
 
 module.exports = config;

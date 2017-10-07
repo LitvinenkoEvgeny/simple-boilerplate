@@ -2,6 +2,5 @@
 - pug
 - puglint
 - sass\scss
-- sass\scsslint
 - babel for transpile es6 code to es5
 

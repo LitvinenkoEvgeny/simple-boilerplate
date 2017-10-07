@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 
 const srcPath = path.join(__dirname, '../src');
-const publicPath = '/assets/';
+const publicPath = 'assets/';
 
 const pugLoader = {
     test: /\.(pug)$/,
@@ -30,6 +30,8 @@ const cssLoader = {
     }, {
         loader: "css-loader" // translates CSS into CommonJS
     }, {
+        loader: "postcss-loader"
+    },{
         loader: "sass-loader" // compiles Sass to CSS
     }]
 };
