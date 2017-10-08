@@ -5,8 +5,8 @@
 - babel for transpile es6 code to es5
 
 ## Known issues
-- webpack spritesmith plugin did not create sprite file in assets properly
-you manually import sprite.png in your css like so:
+- webpack spritesmith plugin did not create sprite file in assets properly,
+you must manually import sprite.png in your css like so:
 
 ````
 i
