@@ -41,10 +41,6 @@ const loaders = [
 ];
 
 const config = Object.assign(base, {
-    entry: {
-        bundle: './index.js'
-        // vendor: [/* write here all your vendor libs */]
-    },
     context: path.join(__dirname, '..', 'src'),
 
     devtool: 'source-map',

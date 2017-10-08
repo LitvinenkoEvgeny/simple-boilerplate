@@ -1,9 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 const defaults = require('./defaults');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackSpriteSmith = require('webpack-spritesmith');
 
 module.exports = {
+    entry: {
+        bundle: defaults.entryFileName,
+        vendor: defaults.vendorLibs,
+    },
     output: {
         path: path.join(__dirname, '..', 'dist', 'assets'),
         filename: '[name].[hash].js',
@@ -27,6 +32,9 @@ module.exports = {
             template: '!!pug-loader!src/index.pug',
             filename: '../index.html',
             alwaysWriteToDisk: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['vendor']
         }),
         new WebpackSpriteSmith({
             src: {

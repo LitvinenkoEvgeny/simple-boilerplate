@@ -2,6 +2,8 @@ const path = require('path');
 
 
 const srcPath = path.join(__dirname, '../src');
+const entryFileName = './index.js';
+const vendorLibs = ['jquery'];
 const publicPath = '/assets/';
 
 const pugLoader = {
@@ -69,6 +71,8 @@ const pngSpritesOutputPath = path.join(__dirname, '..', 'src', 'img', 'sprites',
 const pngSpritesCssOutputPath = path.join(__dirname, '..', 'src', 'css', 'sprites', 'png-sprites.sass');
 
 module.exports = {
+    entryFileName,
+    vendorLibs,
     srcPath,
     publicPath,
     jsLoader,
