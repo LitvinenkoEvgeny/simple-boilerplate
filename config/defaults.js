@@ -1,5 +1,4 @@
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
 
 
 const srcPath = path.join(__dirname, '../src');
