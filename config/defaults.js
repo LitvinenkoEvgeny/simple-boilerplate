@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 
 const srcPath = path.join(__dirname, '../src');
-const publicPath = 'assets/';
+const publicPath = '/assets/';
 
 const pugLoader = {
     test: /\.(pug)$/,
@@ -63,6 +63,12 @@ const videoLoader = {
     }
 };
 
+
+// https://github.com/mixtur/webpack-spritesmith#example
+const pngSpritesFolder = path.join(__dirname, '..', 'src', 'img', 'sprites', 'png');
+const pngSpritesOutputPath = path.join(__dirname, '..', 'src', 'img', 'sprites', 'sprite.png');
+const pngSpritesCssOutputPath = path.join(__dirname, '..', 'src', 'css', 'sprites', 'png-sprites.sass');
+
 module.exports = {
     srcPath,
     publicPath,
@@ -72,4 +78,7 @@ module.exports = {
     imgLoader,
     fontLoader,
     videoLoader,
+    pngSpritesFolder,
+    pngSpritesOutputPath,
+    pngSpritesCssOutputPath
 };

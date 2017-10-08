@@ -10,9 +10,6 @@ const eslintLoader = {
     exclude: /node_modules/,
     enforce: "pre",
     loader: "eslint-loader",
-    options: {
-        fix: true
-    }
 };
 
 const jsHintLoader = {
@@ -37,8 +34,6 @@ const jsHintLoader = {
 const loaders = [
     {...defaults.pugLoader},
     {...defaults.jsLoader},
-    {...eslintLoader},
-    {...jsHintLoader},
     {...defaults.cssLoader},
     {...defaults.imgLoader},
     {...defaults.fontLoader},

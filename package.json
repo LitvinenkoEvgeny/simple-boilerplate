@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/assets/ && NODE_ENV=production webpack",
-    "dev": "rimraf dist/assets/ && NODE_ENV=development webpack-dev-server"
+    "dev": "NODE_ENV=development webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,8 @@
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-dev-server": "^2.9.1",
+    "webpack-spritesmith": "^0.3.3"
   },
   "dependencies": {
     "autoprefixer": "^7.1.5",
