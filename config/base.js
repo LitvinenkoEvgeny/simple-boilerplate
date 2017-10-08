@@ -19,7 +19,7 @@ module.exports = {
 
     resolve: {
         //webpack 2:
-        modules: ["node_modules", path.join(__dirname, '..', 'src', 'img', 'sprites', 'png')]
+        modules: ["node_modules", defaults.pngSpritesFolder]
     },
 
     plugins: [
