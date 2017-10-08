@@ -5,9 +5,40 @@ const defaults = require('./defaults');
 
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
+const eslintLoader = {
+    test: /\.js$/,
+    exclude: /node_modules/,
+    enforce: "pre",
+    loader: "eslint-loader",
+    options: {
+        fix: true
+    }
+};
+
+const jsHintLoader = {
+    test: /\.js$/, // include .js files
+    enforce: "pre", // preload the jshint loader
+    exclude: /node_modules/, // exclude any and all files in the node_modules folder
+    use: [
+        {
+            loader: "jshint-loader",
+            options: {
+                "undef": true,
+                "unused": true,
+                "esversion": 6,
+                "globals": {
+                    "MY_GLOBAL": true
+                }
+            }
+        }
+    ]
+};
+
 const loaders = [
     {...defaults.pugLoader},
     {...defaults.jsLoader},
+    {...eslintLoader},
+    {...jsHintLoader},
     {...defaults.cssLoader},
     {...defaults.imgLoader},
     {...defaults.fontLoader},
@@ -23,8 +54,7 @@ const config = Object.assign(base, {
 
     devtool: 'source-map',
 
-
-    module: { rules: [...loaders]}
+    module: {rules: [...loaders]}
 });
 
 config.plugins.push(
